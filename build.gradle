@@ -1,0 +1,58 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE'
+    }
+}
+
+plugins {
+    id "io.spring.dependency-management" version "1.0.4.RELEASE"
+    id 'java'
+    id "com.moowork.node" version "1.2.0"
+}
+
+allprojects {
+    apply plugin: 'java'
+    version = '1.0-SNAPSHOT'
+    sourceCompatibility = 1.8
+
+    repositories {
+        jcenter()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    apply plugin: 'io.spring.dependency-management'
+
+    afterEvaluate {
+        dependencyManagement {
+            imports {
+                mavenBom 'io.spring.platform:platform-bom:Brussels-SR7'
+            }
+            dependencies {
+                dependency 'commons-validator:commons-validator:1.6'
+                dependency 'org.projectlombok:lombok:1.16.20'
+                dependency 'javax.inject:javax.inject:1'
+                dependency 'com.jayway.awaitility:awaitility:1.7.0'
+            }
+        }
+    }
+}
+
+apply plugin: 'java'
+
+jar {
+    baseName = 'filemanager'
+    version = '0.1.0'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

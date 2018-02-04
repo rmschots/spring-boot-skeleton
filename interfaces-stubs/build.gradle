@@ -1,0 +1,6 @@
+group 'be.rmangels.skeleton'
+
+dependencies {
+    compile project(':infrastructure')
+    compile 'com.jayway.awaitility:awaitility'
+}

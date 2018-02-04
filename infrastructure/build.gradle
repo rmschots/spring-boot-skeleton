@@ -1,0 +1,20 @@
+group 'be.rmangels.skeleton'
+
+dependencies {
+    compile project(':config')
+    compile project(':db-scripts')
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-logging'
+    compile 'org.springframework.boot:spring-boot-starter-validation'
+    compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    compile 'javax.inject:javax.inject'
+    compile 'com.google.guava:guava'
+    compile 'commons-validator:commons-validator'
+    compile 'org.projectlombok:lombok'
+}
+
+task testJar(type: Jar) {
+    classifier = 'tests'
+    from sourceSets.test.output
+}

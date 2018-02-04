@@ -1,0 +1,26 @@
+group 'be.rmangels.skeleton'
+
+dependencies {
+    compile project(':component-common:api')
+    compile project(':component-common:service')
+    compile project(':component-common:domain')
+    compile project(':component-common:interface')
+    compile project(':security')
+    compile project(':infrastructure')
+    compile project(':config')
+    compile project(':db-scripts')
+    compile project(':acl')
+    compile project(':interfaces')
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
+apply plugin: 'org.springframework.boot'

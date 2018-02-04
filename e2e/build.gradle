@@ -1,0 +1,11 @@
+group 'be.rmangels.skeleton'
+
+dependencies {
+    testCompile project(':jar')
+    testCompile project(':interfaces-stubs')
+    testCompile files(project(':infrastructure').sourceSets.test.output)
+    testCompile 'com.jayway.restassured:rest-assured'
+    testCompile 'com.jayway.restassured:spring-mock-mvc'
+    testCompile 'junit:junit'
+    testCompile 'org.assertj:assertj-core'
+}

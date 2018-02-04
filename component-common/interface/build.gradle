@@ -1,0 +1,5 @@
+group 'be.rmangels.skeleton.common'
+
+dependencies {
+    compile project(':infrastructure')
+}

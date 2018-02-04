@@ -1,0 +1,6 @@
+group 'be.rmangels.skeleton.common'
+
+dependencies {
+    compile project(':component-common:domain')
+    compile project(':acl')
+}
