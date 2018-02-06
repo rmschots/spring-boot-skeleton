@@ -1,6 +1,7 @@
 group 'be.rmangels.skeleton.common'
 
 dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-security'
     compile project(':component-common:interface')
     compile project(':infrastructure')
 }

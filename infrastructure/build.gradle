@@ -1,20 +1,38 @@
 group 'be.rmangels.skeleton'
 
+
 dependencies {
     compile project(':config')
     compile project(':db-scripts')
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'org.springframework.boot:spring-boot-starter-logging'
     compile 'org.springframework.boot:spring-boot-starter-validation'
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml'
     compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    compile 'org.hibernate:hibernate-java8'
     compile 'javax.inject:javax.inject'
     compile 'com.google.guava:guava'
     compile 'commons-validator:commons-validator'
     compile 'org.projectlombok:lombok'
+    compile 'org.apache.commons:commons-lang3'
+
+    testCompile 'org.mockito:mockito-core'
+    testCompile 'junit:junit'
+    testCompile 'org.assertj:assertj-core'
 }
 
-task testJar(type: Jar) {
-    classifier = 'tests'
-    from sourceSets.test.output
+apply plugin: 'java'
+
+task testJar(type: Jar, dependsOn: testClasses) {
+    classifier "tests"
+    from sourceSets.test.java
+}
+
+configurations {
+    tests.extendsFrom testRuntime
+}
+
+artifacts {
+    archives testJar
 }

@@ -16,19 +16,10 @@ include 'e2e'
 include 'e2e'
 include 'jar'
 
+rootProject.children.each { project ->
+    project.projectDir = "$rootDir/${project.name}" as File
 
-project(':ui').projectDir = "$rootDir/ui" as File
-project(':config').projectDir = "$rootDir/config" as File
-project(':config-test').projectDir = "$rootDir/config-test" as File
-project(':db-scripts').projectDir = "$rootDir/db-scripts" as File
-project(':infrastructure').projectDir = "$rootDir/infrastructure" as File
-project(':interfaces').projectDir = "$rootDir/interfaces" as File
-project(':interfaces-stubs').projectDir = "$rootDir/interfaces-stubs" as File
-project(':acl').projectDir = "$rootDir/acl" as File
-project(':component-common:api').projectDir = "$rootDir/component-common/api" as File
-project(':component-common:domain').projectDir = "$rootDir/component-common/domain" as File
-project(':component-common:interface').projectDir = "$rootDir/component-common/interface" as File
-project(':component-common:service').projectDir = "$rootDir/component-common/service" as File
-project(':security').projectDir = "$rootDir/security" as File
-project(':e2e').projectDir = "$rootDir/e2e" as File
-project(':jar').projectDir = "$rootDir/jar" as File
+    assert project.projectDir.isDirectory()
+    assert project.buildFile.exists()
+    assert project.buildFile.isFile()
+}

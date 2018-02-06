@@ -1,4 +1,5 @@
 group 'be.rmangels.skeleton'
 
 dependencies {
+    compile 'org.springframework:spring-context'
 }

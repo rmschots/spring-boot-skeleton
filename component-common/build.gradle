@@ -1,15 +1,4 @@
 group 'be.rmangels.skeleton'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'java'
-
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
-    }
-}
 
 dependencies {
     compile project(':component-common:api')
@@ -24,10 +13,15 @@ dependencies {
     compile project(':interfaces')
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile project(':infrastructure')
-    testCompile files(project(':infrastructure').sourceSets.test.output)
-    testCompile 'org.assertj:assertj-core'
-    testCompile 'junit:junit'
-    testCompile 'org.mockito:mockito-core'
+//    testCompile project(path: ':interfaces', configuration: 'testArtifacts')
 }
 
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.9.RELEASE")
+    }
+}
+apply plugin: 'org.springframework.boot'

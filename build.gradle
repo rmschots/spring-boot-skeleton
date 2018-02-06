@@ -40,8 +40,9 @@ subprojects {
             dependencies {
                 dependency 'commons-validator:commons-validator:1.6'
                 dependency 'org.projectlombok:lombok:1.16.20'
-                dependency 'javax.inject:javax.inject:1'
                 dependency 'com.jayway.awaitility:awaitility:1.7.0'
+                dependency 'junit:junit:4.12'
+                dependency 'io.rest-assured:spring-mock-mvc:3.0.6'
             }
         }
     }

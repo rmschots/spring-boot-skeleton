@@ -5,7 +5,6 @@ dependencies {
     testCompile project(':interfaces-stubs')
     testCompile files(project(':infrastructure').sourceSets.test.output)
     testCompile 'com.jayway.restassured:rest-assured'
-    testCompile 'com.jayway.restassured:spring-mock-mvc'
+    testCompile 'io.rest-assured:spring-mock-mvc'
     testCompile 'junit:junit'
-    testCompile 'org.assertj:assertj-core'
 }
