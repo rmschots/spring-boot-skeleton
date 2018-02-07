@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE'
+        classpath 'io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE'
     }
 }
 
@@ -51,7 +51,7 @@ subprojects {
 apply plugin: 'java'
 
 jar {
-    baseName = 'filemanager'
+    baseName = 'skeleton'
     version = '0.1.0'
 }
 
